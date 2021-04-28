@@ -1,13 +1,19 @@
 const url = "https://pokeapi-nodejs.herokuapp.com/"
 
-fetch("https://pokeapi-nodejs.herokuapp.com/mew")
+var rdm = Math.floor(Math.random() * (809 - 1 + 1) + 1);
+console.log(rdm);
+
+fetch("https://pokeapi-nodejs.herokuapp.com/" + rdm)
 .then(response => response.json())
 .then(data => {
     console.log(data)
+    buscarPokemon(data);
 })
 .catch(err => console.log(err))
 
 document.getElementById("pokename").value = "bulbasaur"
+
+
 
     const btnAgregar = document.querySelectorAll('.btn-success')
     btnAgregar.forEach(btn => {
@@ -15,6 +21,46 @@ document.getElementById("pokename").value = "bulbasaur"
             fetch(url + document.getElementById("pokename").value)
             .then(response => response.json())
             .then(data => {
+            buscarPokemon(data);
+        })
+        .catch(err => console.log(err))
+        })
+    })
+
+    const btnNext = document.querySelectorAll('.next')
+    btnNext.forEach(btn => {
+        btn.addEventListener('click', () => {
+            console.log("holaaaaaa");
+            console.log(url);
+            console.log(parseInt(document.getElementById("card-text-id").textContent) + 1);
+            var aux = parseInt(document.getElementById("card-text-id").textContent) + 1;
+            fetch(url + aux)
+            .then(response => response.json())
+            .then(data => {
+            buscarPokemon(data);
+        })
+        .catch(err => console.log(err))
+        })
+    })
+
+    const btnPrev = document.querySelectorAll('.prev')
+    btnPrev.forEach(btn => {
+        btn.addEventListener('click', () => {
+            console.log("holaaaaaa");
+            console.log(url);
+            console.log(parseInt(document.getElementById("card-text-id").textContent) - 1);
+            var aux = parseInt(document.getElementById("card-text-id").textContent) - 1;
+            fetch(url + aux)
+            .then(response => response.json())
+            .then(data => {
+            buscarPokemon(data);
+        })
+        .catch(err => console.log(err))
+        })
+    })
+
+    const buscarPokemon = (data) => {
+        
                 console.log(data)
 
                 if(JSON.stringify(data)!="null"){
@@ -35,7 +81,7 @@ document.getElementById("pokename").value = "bulbasaur"
                 card.hidden = false;
                 card.querySelector(".card-img-top").setAttribute("src", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + data.id + ".png");
                 card.querySelector(".card-title").textContent = data.name;
-                card.querySelector(".card-text").textContent = "#" + data.id;
+                card.querySelector(".card-text").textContent = data.id;
 
                 if(data.type.length==1) {
                     card.querySelector(".type-2").hidden = true;
@@ -208,6 +254,8 @@ document.getElementById("pokename").value = "bulbasaur"
                         }  
                     }
                 }
+
+                document.getElementById("pokename").value = data.name.toLowerCase()
                 
                 //card.querySelector(".type-2").setAttribute("style", "opacity: 1; background-color: red");
 
@@ -226,10 +274,4 @@ document.getElementById("pokename").value = "bulbasaur"
                 card.querySelector(".progress-bar-6").style.width = data.base.Speed/2.55 + "%";
                 card.querySelector(".progress-bar-6").textContent = "Speed: " + data.base.Speed;
                 */        
-            }
-            })
-            .catch(err => console.log(err))
-            
-        })
-    })
-
+            }}
