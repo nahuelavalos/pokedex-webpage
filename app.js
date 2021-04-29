@@ -92,6 +92,41 @@ const buscarPokemon = (data) => {
         var cardMove = document.getElementById("card-id-2");
         cardMove.hidden = false;
 
+        var hp = document.getElementById("pg-1");
+        hp.style.width = data.base.HP/1.5 + "%";
+        hp.style.backgroundColor = "yellow";
+        hp.textContent = data.base.HP;
+        hp.style.textAlign = "center";
+
+        var atk = document.getElementById("pg-2");
+        atk.style.width = data.base.Attack/1.5 + "%";
+        atk.style.backgroundColor = "yellow";
+        atk.textContent = data.base.Attack;
+        atk.style.textAlign = "center";
+
+        var def = document.getElementById("pg-3");
+        def.style.width = data.base.Defense/1.5 + "%";
+        def.textContent = data.base.Defense;
+        def.style.textAlign = "center";
+
+        var spatk = document.getElementById("pg-4");
+        spatk.style.width = data.base["Sp. Attack"]/1.5 + "%";
+        spatk.textContent = data.base["Sp. Attack"];
+        spatk.style.textAlign = "center";
+
+        var spdef = document.getElementById("pg-5");
+        spdef.style.width = data.base["Sp. Defense"]/1.5 + "%";
+        spdef.textContent = data.base["Sp. Defense"];
+        spdef.style.textAlign = "center";
+
+        var speed = document.getElementById("pg-6");
+        speed.style.width = data.base.Speed/1.5 + "%";
+        speed.textContent = data.base.Speed;
+        speed.style.textAlign = "center";
+
+        //document.querySelector(".progress-bar").style.textAlign = "center";
+
+
         if(data.type.length==1) {
             card.querySelector(".type-2").hidden = true;
         }
