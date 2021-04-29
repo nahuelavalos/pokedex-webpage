@@ -89,6 +89,9 @@ const buscarPokemon = (data) => {
         card.querySelector(".card-title").textContent = data.name;
         card.querySelector(".card-text").textContent = data.id;
 
+        var cardMove = document.getElementById("card-id-2");
+        cardMove.hidden = false;
+
         if(data.type.length==1) {
             card.querySelector(".type-2").hidden = true;
         }
