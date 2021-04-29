@@ -1,9 +1,9 @@
 const url = "https://pokeapi-nodejs.herokuapp.com/"
+const max = 809;
 
-var max = 809;
+// Random (Inicio)
 var rdm = Math.floor(Math.random() * (max) + 1);
-
-fetch("https://pokeapi-nodejs.herokuapp.com/" + rdm)
+fetch(url + rdm)
 .then(response => response.json())
 .then(data => {
     console.log(data)
@@ -35,6 +35,19 @@ textEnter.forEach(btn => {
     })
 })
 
+const btnPrev = document.querySelectorAll('.prev')
+btnPrev.forEach(btn => {
+    btn.addEventListener('click', () => {
+        var nro = parseInt(document.getElementById("card-text-id").textContent) - 1;
+        fetch(url + nro)
+        .then(response => response.json())
+        .then(data => {
+            buscarPokemon(data);
+        })
+        .catch(err => console.log(err))
+    })
+})
+
 const btnNext = document.querySelectorAll('.next')
 btnNext.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -48,11 +61,11 @@ btnNext.forEach(btn => {
     })
 })
 
-const btnPrev = document.querySelectorAll('.prev')
-btnPrev.forEach(btn => {
+const btnRandom = document.querySelectorAll('.random')
+btnRandom.forEach(btn => {
     btn.addEventListener('click', () => {
-        var nro = parseInt(document.getElementById("card-text-id").textContent) - 1;
-        fetch(url + nro)
+        var rdm = Math.floor(Math.random() * (max) + 1)
+        fetch(url + rdm)
         .then(response => response.json())
         .then(data => {
             buscarPokemon(data);
