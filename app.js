@@ -94,36 +94,90 @@ const buscarPokemon = (data) => {
 
         var hp = document.getElementById("pg-1");
         hp.style.width = data.base.HP/1.5 + "%";
-        hp.style.backgroundColor = "yellow";
         hp.textContent = data.base.HP;
         hp.style.textAlign = "center";
+        if(data.base.HP <= 40) {
+            hp.style.backgroundColor = "orange";
+        } else if(data.base.HP <= 80) {
+            hp.style.backgroundColor = "yellow";
+        } else if(data.base.HP <= 120) {
+            hp.style.backgroundColor = "greenyellow";
+        } else {
+            hp.style.backgroundColor = "lightgreen";
+        }
 
         var atk = document.getElementById("pg-2");
         atk.style.width = data.base.Attack/1.5 + "%";
-        atk.style.backgroundColor = "yellow";
         atk.textContent = data.base.Attack;
         atk.style.textAlign = "center";
+        if(data.base.Attack <= 40) {
+            atk.style.backgroundColor = "orange";
+        } else if(data.base.Attack <= 80) {
+            atk.style.backgroundColor = "yellow";
+        } else if(data.base.Attack <= 120) {
+            atk.style.backgroundColor = "greenyellow";
+        } else {
+            atk.style.backgroundColor = "lightgreen";
+        }
 
         var def = document.getElementById("pg-3");
         def.style.width = data.base.Defense/1.5 + "%";
         def.textContent = data.base.Defense;
         def.style.textAlign = "center";
+        if(data.base.Defense <= 40) {
+            def.style.backgroundColor = "orange";
+        } else if(data.base.Defense <= 80) {
+            def.style.backgroundColor = "yellow";
+        } else if(data.base.Defense <= 120) {
+            def.style.backgroundColor = "greenyellow";
+        } else {
+            def.style.backgroundColor = "lightgreen";
+        }
 
         var spatk = document.getElementById("pg-4");
         spatk.style.width = data.base["Sp. Attack"]/1.5 + "%";
         spatk.textContent = data.base["Sp. Attack"];
         spatk.style.textAlign = "center";
+        if(data.base["Sp. Attack"] <= 40) {
+            spatk.style.backgroundColor = "orange";
+        } else if(data.base["Sp. Attack"] <= 80) {
+            spatk.style.backgroundColor = "yellow";
+        } else if(data.base["Sp. Attack"] <= 120) {
+            spatk.style.backgroundColor = "greenyellow";
+        } else {
+            spatk.style.backgroundColor = "lightgreen";
+        }
 
         var spdef = document.getElementById("pg-5");
         spdef.style.width = data.base["Sp. Defense"]/1.5 + "%";
         spdef.textContent = data.base["Sp. Defense"];
         spdef.style.textAlign = "center";
+        if(data.base["Sp. Defense"] <= 40) {
+            spdef.style.backgroundColor = "orange";
+        } else if(data.base["Sp. Defense"] <= 80) {
+            spdef.style.backgroundColor = "yellow";
+        } else if(data.base["Sp. Defense"] <= 120) {
+            spdef.style.backgroundColor = "greenyellow";
+        } else {
+            spdef.style.backgroundColor = "lightgreen";
+        }
 
         var speed = document.getElementById("pg-6");
         speed.style.width = data.base.Speed/1.5 + "%";
         speed.textContent = data.base.Speed;
         speed.style.textAlign = "center";
+        if(data.base.Speed <= 40) {
+            speed.style.backgroundColor = "orange";
+        } else if(data.base.Speed <= 80) {
+            speed.style.backgroundColor = "yellow";
+        } else if(data.base.Speed <= 120) {
+            speed.style.backgroundColor = "greenyellow";
+        } else {
+            speed.style.backgroundColor = "lightgreen";
+        }
 
+        //var total = document.getElementById("total");
+        //total.textContent = "88888"
         //document.querySelector(".progress-bar").style.textAlign = "center";
 
 
