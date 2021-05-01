@@ -8,19 +8,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <script
-      src="https://kit.fontawesome.com/7b5fb2de65.js"
-      crossorigin="anonymous"
-      async
-    ></script>
+    <!-- Fontawesome Logos -->
+    <script src="https://kit.fontawesome.com/7b5fb2de65.js" crossorigin="anonymous" async></script>
 
     <title>Pokedex!</title>
   </head>
   <body>
-    <!--h1>Pokedex!</h1-->
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
@@ -29,42 +22,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Pokedex!</a>
-        <a href="#" class="home__title--nombre" style="color: red"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            
-          </li>
-            <!--li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li-->
-          </ul>
-          <form class="d-flex" style="align-content: right;">
-          </form>
-          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
           <a href="https://nahuelavalos.github.io/" target="_blank">
             <button class="btn btn-sm" type="submit">
               <i class="fas fa-globe" style='font-size:20px;color:green;text-align: center;'></i>
@@ -80,62 +46,44 @@
               <i class="fab fa-github-alt" style='font-size:20px;color:black;text-align: center;'></i>
             </button>
           </a>
-          
-          
-        
-          
-            
-          
-          
         </div>
       </div>
     </nav>
 
     <div class="container">
-      
-
-<br><!--h1 style="text-align: center;">Pokedex!</h1--><br>
-    <div class="row justify-content-center">
-        <div class="col-auto">
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">https://pokeapi-nodejs.herokuapp.com/</span>
-                <input type="text" class="form-control input-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="pokename">
-                <button class="btn btn-success" type="button" id="button-addon2">GET</button>
-            </div>
-            <div class="input-group input-group-sm">
-                <textarea  class="form-control" aria-label="Response" aria-describedby="basic-addon1" id="response" rows="16" style="overflow:auto;resize:none;background-color:white;color:black" disabled></textarea>
-            </div>
-            
-    </div>
-    
-    <div class="card mb-3" style="max-width: 550px; border: none" id="card-id">
-      <div class="row g-0">
-        <div class="col-md-5">
-          
-          <img src="" class="card-img-top" alt="" style="background-color: whitesmoke">
-          
-            <div class="row justify-content-center">
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-secondary btn prev" style="border-color: white">&lt</button>
-              <button type="button" class="btn btn-secondary btn random" style="border-color: white; background-color: dimgray; font-size: small;">Random</button>
-              <button type="button" class="btn btn-secondary btn next" style="border-color: white">&gt</button>
-            </div>
+      <br><br>
+      <div class="row justify-content-center">
+          <div class="col-auto">
+              <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text">https://pokeapi-nodejs.herokuapp.com/</span>
+                  <input type="text" class="form-control input-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="pokename">
+                  <button class="btn btn-success" type="button" id="button-addon2">GET</button>
+              </div>
+              <div class="input-group input-group-sm">
+                  <textarea  class="form-control" aria-label="Response" aria-describedby="basic-addon1" id="response" rows="16" style="overflow:auto;resize:none;background-color:white;color:black" disabled></textarea>
+              </div>
           </div>
-        
-          <br>
-          <h5 class="card-title"></h5>
-          <p class="card-text" id="card-text-id"></p>
-          
-          <button type="button-type-one" class="btn type-1" disabled></button>
-              <button type="button-type-two" class="btn type-2" disabled></button>
-        </div>
-        <div class="col-md-7">
-          <div class="card-body">
-           
-
-                
+          <div class="card mb-3" style="max-width: 550px; border: none" id="card-id">
+            <div class="row g-0">
+              <div class="col-md-5">  
+                <img src="" class="card-img-top" alt="" style="background-color: whitesmoke">
+                <div class="row justify-content-center">
+                  <div class="btn-group" role="group" aria-label="Basic example" id="buttons" hidden>
+                    <button type="button" class="btn btn-secondary btn prev" style="border-color: white">&lt</button>
+                    <button type="button" class="btn btn-secondary btn random" style="border-color: white; background-color: dimgray; font-size: small;">Random</button>
+                    <button type="button" class="btn btn-secondary btn next" style="border-color: white">&gt</button>
+                  </div>
+                </div>
+                <br>
+                <h5 class="card-title"></h5>
+                <p class="card-text" id="card-text-id"></p>
+                <button type="button-type-one" class="btn type-1" disabled></button>
+                <button type="button-type-two" class="btn type-2" disabled></button>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless" id="stats" hidden>
                       <thead>
                         <tr>
                           <th scope="col" hidden>Stats</th>
@@ -186,51 +134,13 @@
                       </tbody>
                     </table>
                   </div>
-                
-
-
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-
-      
-
-
-    
-
-    </div>
-    
-
-
-   
-     
-
-      </div>
-    
-  
-
-
-    
-  
-        <br>
-        </div>
-
-
-       
-
-
-      </div>
-     
+    </div>  
     <script src="app.js"></script>
-    <br>
-</body>
-<!--footer>
-  <nav class="navbar navbar-light bg-secondary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="" width="30" height="24" class="d-inline-block align-text-top"></a>
-    </div>
-  </nav>
-  </footer-->
+  </body>
 </html>

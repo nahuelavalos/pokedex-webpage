@@ -1,9 +1,7 @@
 const url = "https://pokeapi-nodejs.herokuapp.com/"
 const max = 809;
 
-//const textEnter = document.querySelectorAll('.input-name')
-
-// Random (Inicio)
+// INIT (RANDOM)
 var rdm = Math.floor(Math.random() * (max) + 1);
 fetch(url + rdm)
 .then(response => response.json())
@@ -12,10 +10,6 @@ fetch(url + rdm)
     buscarPokemon(data);
 })
 .catch(err => console.log(err))
-
-//const buttons = document.querySelectorAll('.group')
-//buttons.hidden = false;
-
 
 const btnGet = document.querySelectorAll('.btn-success')
 btnGet.forEach(btn => {
@@ -84,18 +78,26 @@ const buscarPokemon = (data) => {
     console.log(data)
 
     if(JSON.stringify(data)!="null") {
+        //NAME-GET
         document.getElementById("pokename").value = data.name.toLowerCase()
 
+        //JSON
         var str = JSON.stringify(data, undefined, 8);
         document.getElementById('response').value = str;
-                
+        
+        //PNG + NAME + NUMBER
         var card = document.getElementById("card-id");
-        card.hidden = false;
         card.querySelector(".card-img-top").setAttribute("src", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + data.id + ".png");
         card.querySelector(".card-title").textContent = data.name;
         card.querySelector(".card-text").textContent = data.id;
-
         
+        // BUTTONS
+        var buttons = document.getElementById("buttons");
+        buttons.hidden = false;
+
+        //STATS
+        var stats = document.getElementById("stats");
+        stats.hidden = false;
 
         var hp = document.getElementById("pg-1");
         hp.style.width = data.base.HP/1.5 + "%";
@@ -181,15 +183,10 @@ const buscarPokemon = (data) => {
             speed.style.backgroundColor = "lightgreen";
         }
 
-        //var total = document.getElementById("total");
-        //total.textContent = "88888"
-        //document.querySelector(".progress-bar").style.textAlign = "center";
-
-
+        //TYPES
         if(data.type.length==1) {
             card.querySelector(".type-2").hidden = true;
-        }
-        else {
+        } else {
             card.querySelector(".type-2").hidden = false;
         }
 
