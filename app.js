@@ -74,6 +74,19 @@ btnRandom.forEach(btn => {
     })
 })
 
+const btnNavbar = document.querySelectorAll('.navbar-brand')
+btnNavbar.forEach(btn => {
+    btn.addEventListener('click', () => {
+        var rdm = Math.floor(Math.random() * (max) + 1)
+        fetch(url + rdm)
+        .then(response => response.json())
+        .then(data => {
+            buscarPokemon(data);
+        })
+        .catch(err => console.log(err))
+    })
+})
+
 const buscarPokemon = (data) => {
     console.log(data)
 
