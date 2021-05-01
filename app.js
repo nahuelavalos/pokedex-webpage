@@ -89,8 +89,7 @@ const buscarPokemon = (data) => {
         card.querySelector(".card-title").textContent = data.name;
         card.querySelector(".card-text").textContent = data.id;
 
-        var cardMove = document.getElementById("card-id-2");
-        cardMove.hidden = false;
+        
 
         var hp = document.getElementById("pg-1");
         hp.style.width = data.base.HP/1.5 + "%";
