@@ -86,7 +86,7 @@ const buscarPokemon = (data) => {
     if(JSON.stringify(data)!="null") {
         document.getElementById("pokename").value = data.name.toLowerCase()
 
-        var str = JSON.stringify(data, undefined, 4);
+        var str = JSON.stringify(data, undefined, 8);
         document.getElementById('response').value = str;
                 
         var card = document.getElementById("card-id");
