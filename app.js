@@ -1,6 +1,8 @@
 const url = "https://pokeapi-nodejs.herokuapp.com/"
 const max = 809;
 
+//const textEnter = document.querySelectorAll('.input-name')
+
 // Random (Inicio)
 var rdm = Math.floor(Math.random() * (max) + 1);
 fetch(url + rdm)
@@ -10,6 +12,10 @@ fetch(url + rdm)
     buscarPokemon(data);
 })
 .catch(err => console.log(err))
+
+//const buttons = document.querySelectorAll('.group')
+//buttons.hidden = false;
+
 
 const btnGet = document.querySelectorAll('.btn-success')
 btnGet.forEach(btn => {
