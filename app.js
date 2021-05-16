@@ -6,7 +6,7 @@ var rdm = Math.floor(Math.random() * (max) + 1);
 fetch(url + rdm)
 .then(response => response.json())
 .then(data => {
-    console.log(data)
+    //console.log(data)
     buscarPokemon(data);
 })
 .catch(err => console.log(err))
@@ -88,8 +88,6 @@ btnNavbar.forEach(btn => {
 })
 
 const buscarPokemon = (data) => {
-    console.log(data)
-
     if(JSON.stringify(data)!="null") {
         //NAME-GET
         document.getElementById("pokename").value = data.name.toLowerCase()
@@ -208,7 +206,6 @@ const buscarPokemon = (data) => {
         }
 
         for(var i=0; i<data.type.length; i++) {
-            console.log(data.type[i]);
             if(data.type[i] == "Normal") {
                 if(i==0) {
                     card.querySelector(".type-1").setAttribute("style", "opacity: 1; background-color: wheat; color: black");
