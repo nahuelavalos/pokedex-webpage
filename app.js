@@ -103,6 +103,10 @@ const buscarPokemon = (data) => {
         card.querySelector(".card-img-top").setAttribute("src", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + data.id + ".png");
         card.querySelector(".card-title").textContent = data.name;
         card.querySelector(".card-text").textContent = data.id;
+
+        //SPINNER
+        var spinner = document.querySelector(".spinner-border");
+        spinner.hidden = true;
         
         // BUTTONS
         var buttons = document.getElementById("buttons");
