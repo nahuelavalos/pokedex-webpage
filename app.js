@@ -1,76 +1,95 @@
-const url = "https://pokeapi-nodejs.herokuapp.com/"
 const max = 809;
 
-// INIT (RANDOM)
+//INIT (RANDOM)
 var rdm = Math.floor(Math.random() * (max) + 1);
-fetch(url + rdm)
-.then(response => response.json())
-.then(data => {
-    //console.log(data)
-    buscarPokemon(data);
-})
-.catch(err => console.log(err))
+fetch('./pokedex.json')
+    .then(response => response.json())
+    .then(data => {
+        buscarPokemon(data[rdm]);
+    })
+    .catch(err => console.log(err))
 
+//SEARCH (Button)
 const btnGet = document.querySelectorAll('.btn-success')
 btnGet.forEach(btn => {
     btn.addEventListener('click', () => {
-        fetch(url + document.getElementById("pokename").value)
+        fetch('./pokedex.json')
         .then(response => response.json())
         .then(data => {
-            buscarPokemon(data);
+            var idxFound = document.getElementById("card-id").querySelector(".card-text").textContent - 1
+            var pokeName = document.getElementById("pokename").value
+            for(var i=0; i<data.length; i++) {
+                if(data[i].name.english.toLowerCase() == pokeName.toLowerCase() || data[i].id == pokeName) {
+                    idxFound = i
+                    break;
+                }
+            }
+            buscarPokemon(data[idxFound]);
         })
         .catch(err => console.log(err))
     })
 })
 
+//SEARCH (Enter)
 const textEnter = document.querySelectorAll('.input-name')
 textEnter.forEach(btn => {
     btn.addEventListener('keypress', function (e) {if (e.key === 'Enter') {
-        fetch(url + document.getElementById("pokename").value)
+        fetch('./pokedex.json')
         .then(response => response.json())
         .then(data => {
-            buscarPokemon(data);
+            var idxFound = document.getElementById("card-id").querySelector(".card-text").textContent - 1
+            var pokeName = document.getElementById("pokename").value
+            for(var i=0; i<data.length; i++) {
+                if(data[i].name.english.toLowerCase() == pokeName.toLowerCase() || data[i].id == pokeName) {
+                    idxFound = i
+                    break;
+                }
+            }
+            buscarPokemon(data[idxFound]);
         })
         .catch(err => console.log(err))}
     })
 })
 
+//ANTERIOR
 const btnPrev = document.querySelectorAll('.prev')
 btnPrev.forEach(btn => {
     btn.addEventListener('click', () => {
         var nro = parseInt(document.getElementById("card-text-id").textContent) - 1;
-        fetch(url + nro)
-        .then(response => response.json())
-        .then(data => {
-            buscarPokemon(data);
-        })
+        fetch('./pokedex.json')
+            .then(response => response.json())
+            .then(data => {
+                buscarPokemon(data[nro-1]);
+            })
         .catch(err => console.log(err))
     })
 })
 
+//SIGUIENTE
 const btnNext = document.querySelectorAll('.next')
 btnNext.forEach(btn => {
     btn.addEventListener('click', () => {
         var nro = parseInt(document.getElementById("card-text-id").textContent) + 1;
-        fetch(url + nro)
-        .then(response => response.json())
-        .then(data => {
-            buscarPokemon(data);
-        })
+        fetch('./pokedex.json')
+            .then(response => response.json())
+            .then(data => {
+                buscarPokemon(data[nro-1]);
+            })
         .catch(err => console.log(err))
     })
 })
 
+//RANDOM
 const btnRandom = document.querySelectorAll('.random')
 btnRandom.forEach(btn => {
     btn.addEventListener('click', () => {
         var rdm = Math.floor(Math.random() * (max) + 1)
-        fetch(url + rdm)
-        .then(response => response.json())
-        .then(data => {
-            buscarPokemon(data);
-        })
-        .catch(err => console.log(err))
+        fetch('./pokedex.json')
+            .then(response => response.json())
+            .then(data => {
+                buscarPokemon(data[rdm]);
+            })
+        .catch(err => console.log(err))    
     })
 })
 
@@ -90,7 +109,7 @@ btnNavbar.forEach(btn => {
 const buscarPokemon = (data) => {
     if(JSON.stringify(data)!="null") {
         //NAME-GET
-        document.getElementById("pokename").value = data.name.toLowerCase()
+        document.getElementById("pokename").value = data.name.english.toLowerCase()
 
         //JSON
         var str = JSON.stringify(data, undefined, 8);
@@ -99,7 +118,7 @@ const buscarPokemon = (data) => {
         //PNG + NAME + NUMBER
         var card = document.getElementById("card-id");
         card.querySelector(".card-img-top").setAttribute("src", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" + data.id + ".png");
-        card.querySelector(".card-title").textContent = data.name;
+        card.querySelector(".card-title").textContent = data.name.english;
         card.querySelector(".card-text").textContent = data.id;
 
         //SPINNER
