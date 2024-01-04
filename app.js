@@ -1,6 +1,6 @@
 const max = 809;
 
-//INIT (RANDOM)
+//INIT (Random)
 var rdm = Math.floor(Math.random() * (max) + 1);
 fetch('./pokedex.json')
     .then(response => response.json())
